@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ShipmentTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-05-27T02:18:30" hostname="DESKTOP-L9AAHI9" time="0.172">
+  <properties/>
+  <testcase name="removeObserver()" classname="ShipmentTest" time="0.149"/>
+  <testcase name="creationOfShipment()" classname="ShipmentTest" time="0.004"/>
+  <testcase name="addObserver()" classname="ShipmentTest" time="0.001"/>
+  <testcase name="updateDelayed()" classname="ShipmentTest" time="0.002"/>
+  <testcase name="creationOfShipmentNotCreated()" classname="ShipmentTest" time="0.001"/>
+  <testcase name="updateShipped()" classname="ShipmentTest" time="0.002"/>
+  <testcase name="updateCanceled()" classname="ShipmentTest" time="0.001"/>
+  <testcase name="updateDelivered()" classname="ShipmentTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
