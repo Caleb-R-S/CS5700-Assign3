@@ -1,3 +1,6 @@
+/src/main/kotlin/WebServer.kt
+/build.gradle.kts
+/src/main/kotlin/Main.kt
 /.idea/.gitignore
 /src/main/kotlin/Main.kt
 /src/main/kotlin/showyourwork/TrackedShipmentView.kt
@@ -31,3 +34,12 @@ routines-core-jvm/1.5.0/c188f12813668c2fb0f761fbc71ea53cfa83549e/kotlinx-corouti
 /src/test/kotlin/TrackingSimulatorTest.kt
 /src/test/kotlin/DateConverterKtTest.java
 /src/test/kotlin/DateConverterKtTest.kt
+src/main/kotlin/Shipment.kt
+src/main/kotlin/UpdateStrategies/ShipmentUpdateStrategy.kt
+src/main/kotlin/UpdateStrategies/ShippedUpdate.kt
+src/main/kotlin/UpdateStrategies/NoteAddedUpdate.kt
+src/main/kotlin/UpdateStrategies/LostUpdate.kt
+src/main/kotlin/UpdateStrategies/LocationUpdate.kt
+src/main/kotlin/UpdateStrategies/DeliveredUpdate.kt
+src/main/kotlin/UpdateStrategies/DelayedUpdate.kt
+src/main/kotlin/UpdateStrategies/CreatedUpdate.kt

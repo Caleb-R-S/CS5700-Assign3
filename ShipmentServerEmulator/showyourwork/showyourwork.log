@@ -1,0 +1,106 @@
+"a","ShowYourWork Init","","","000","ShowYourWork Init","1.1.3 for 2021-2022 @t1",
+"e","import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+plugins {
+    kotlin(""jvm"") version ""1.6.20""
+    application
+}
+
+group = ""org.example""
+version = ""1.0-SNAPSHOT""
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(kotlin(""test""))
+    
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = ""15""
+}
+
+application {
+    mainClass.set(""MainKt"")
+}","","0","1653671138998","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","Paste",,,"1653671145649","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"p","implementation(""io.ktor:ktor-server-core-jvm:2.0.1"")
+implementation(""io.ktor:ktor-server-netty-jvm:2.0.1"")
+implementation(""io.ktor:ktor-server-status-pages-jvm:2.0.1"")
+implementation(""io.ktor:ktor-server-default-headers-jvm:2.0.1"")",,"263","1653671145716","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"e","implementation(""io.ktor:ktor-server-core-jvm:2.0.1"")
+implementation(""io.ktor:ktor-server-netty-jvm:2.0.1"")
+implementation(""io.ktor:ktor-server-status-pages-jvm:2.0.1"")
+implementation(""io.ktor:ktor-server-default-headers-jvm:2.0.1"")","","263","1653671145716","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"e","    ","","316","1653671145716","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"e","    ","","374","1653671145716","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"e","    ","","439","1653671145716","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","Undefined",,,"1653671165974","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","Undefined",,,"1653671166188","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","Undefined",,,"1653671166188","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","Undefined",,,"1653671166188","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimInsertNewLineAboveAction",,,"1653671198048","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimInsertExitModeAction",,,"1653671207136","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionWordLeftAction",,,"1653671207905","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimInsertBeforeCursorAction",,,"1653671208787","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimInsertExitModeAction",,,"1653671209277","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671209470","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671209649","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671209817","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671209969","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671210130","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671210289","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671210436","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671210611","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671210779","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671210943","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimInsertAfterCursorAction",,,"1653671211475","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimInsertEnterAction",,,"1653671212015","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimInsertExitModeAction",,,"1653671212313","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionDownAction",,,"1653671212451","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionDownAction",,,"1653671212812","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionLeftAction",,,"1653671213141","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionLeftAction",,,"1653671213304","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionLeftAction",,,"1653671213458","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimVisualToggleCharacterModeAction",,,"1653671213592","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionDownAction",,,"1653671213673","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionDownAction",,,"1653671213838","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionDownAction",,,"1653671214002","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionDownAction",,,"1653671214155","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionDownAction",,,"1653671214321","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionDownAction",,,"1653671214472","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionLastColumnAction",,,"1653671214691","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimDeleteVisualAction",,,"1653671215111","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionUpAction",,,"1653671215292","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionUpAction",,,"1653671215456","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimPutTextAfterCursorAction",,,"1653671215678","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionWordEndRightAction",,,"1653671216533","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimInsertBeforeCursorAction",,,"1653671216755","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimInsertEnterAction",,,"1653671216755","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimInsertExitModeAction",,,"1653671216771","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimUndoAction",,,"1653671217851","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimUndoAction",,,"1653671218371","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimExEntryAction",,,"1653671219758","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimProcessExEntryAction",,,"1653671220024","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionDownAction",,,"1653671220471","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionDownAction",,,"1653671220630","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimDeleteMotionAction",,,"1653671222482","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionUpAction",,,"1653671223855","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionUpAction",,,"1653671224337","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671224778","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671225093","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionDownAction",,,"1653671225284","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671225431","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671225642","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimInsertAfterCursorAction",,,"1653671226196","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimInsertExitModeAction",,,"1653671228003","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionUpAction",,,"1653671228144","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671228553","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimMotionRightAction",,,"1653671228743","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","VimInsertNewLineBelowAction",,,"1653671229603","build.gradle.kts","1.1.3 for 2021-2022 @t1",
