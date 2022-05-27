@@ -43,3 +43,7 @@ src/main/kotlin/UpdateStrategies/LocationUpdate.kt
 src/main/kotlin/UpdateStrategies/DeliveredUpdate.kt
 src/main/kotlin/UpdateStrategies/DelayedUpdate.kt
 src/main/kotlin/UpdateStrategies/CreatedUpdate.kt
+src/main/kotlin/WebServer.kt
+src/main/kotlin/UpdateStrategies/CanceledUpdate.kt
+src/main/ShipmentUpdater.html
+build.gradle.kts

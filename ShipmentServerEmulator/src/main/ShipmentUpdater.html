@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShipmentUpdater</title>
+</head>
+<body>
+
+    <h1>Please Enter the shipping information below:</h1>
+
+    <div>
+        <p>
+            <label for="shipment-id">Shipment Id:</label>
+            <input type="text" name="shipment-id" id="shipment-id">
+        </p>
+
+        <p>
+            <label for="shipment-status">Status:</label>
+            <input type="text" name="shipment-status" id="shipment-status">
+        </p>
+
+        <p>
+            <label for="shipment-info">Additional Info:</label>
+            <input type="text" name="additional-info" id="additional-info">
+        </p>
+
+        <button id="update">Update Shipment</button>
+    </div>
+
+</body>
+
+<script>
+    let update = function() {
+        let shipmentId = document.querySelector("#shipment-id").value
+        let shipmentStatus = document.querySelector("#shipment-status").value
+        let additionalInfo = document.querySelector("#additional-info").value
+        let timestamp = new Date().getTime()
+        fetch(`http://127.0.0.1:8080/update?shipment=${shipmentId}&newStatus=${shipmentStatus}&timeStamp=${timestamp}&additionalInfo=${additionalInfo}`)
+            .then(response => response.json()) 
+            .then(data => console.log(data))
+
+            
+    }
+    
+    let button = document.querySelector("#update")
+    button.onclick = update
+</script>
+</html>

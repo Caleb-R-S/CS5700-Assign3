@@ -69,8 +69,8 @@ class TrackingSimulator(val coroutineScope: CoroutineScope) {
                 shipmentHistory[updateDetails[1]]?.add(updateDetails[0])
             }
 
-            val shipmentUpdate = shippingStrategies[updateDetails[0]]?.update(shipmentId = updateDetails[1],
-                newStatus = updateDetails[0],
+            val shipmentUpdate = shippingStrategies[updateDetails[0]]?.update(
+                shipmentId = updateDetails[1],
                 previousStatus = previousStatus.toString(),
                 timeStamp = updateDetails[2].toLong(),
                 additionalInformation = additionalInformation
