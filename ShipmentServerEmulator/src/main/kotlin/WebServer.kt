@@ -24,8 +24,11 @@ object WebServer {
         if (!isRunning) {
             embeddedServer(Netty, 8080) {
                 install(CORS) {
-                    allowHost("127.0.0.1:8080")
-                    allowHeader(HttpHeaders.ContentType)
+//                    allowSameOrigin = true
+//                    allowHost("127.0.0.1:8080")
+//                    allowHeader(HttpHeaders.ContentType)
+                    // This works but may be a little too open
+                    anyHost()
                 }
                 routing {
                     get("/update") {
@@ -35,11 +38,12 @@ object WebServer {
                             timeStamp = call.parameters["timeStamp"]?.toLong() ?: 0,
                             additionalInformation = call.parameters["additionalInformation"] ?: "None"
                         )
+                        println(call.parameters)
                         val isFound = shipments.find { it.shipmentId == (shipmentUpdate?.shipmentId ?: "NONE") }
 //                        if (isFound)
 
                         call.response.headers
-                        call.respondText("Hello, world!", ContentType.Text.Html)
+                        call.respondText("success", ContentType.Text.Html)
                     }
 
                     get("/track") {

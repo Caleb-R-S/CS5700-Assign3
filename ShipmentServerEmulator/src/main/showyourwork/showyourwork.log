@@ -809,3 +809,76 @@ $END$
 "e","localhost","","1070","1653686070736","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
 "e","","localhost","1070","1653686287526","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
 "e","127.0.0.1","","1070","1653686287527","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","127","1070","1653687317894","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","0","","1070","1653687317895","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","1","1076","1653687317896","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","0","","1076","1653687317897","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","0","1081","1653687317898","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","1","","1081","1653687317899","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","0","1070","1653687439396","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","127","","1070","1653687439397","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","0","1078","1653687439398","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","1","","1078","1653687439399","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","1","1083","1653687439400","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","0","","1083","1653687439401","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","json","1240","1653688333914","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","text","","1240","1653688333915","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","data => console.log(data))
+","1267","1653688333914","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","value => {
+                console.log(value)
+                let newDiv = document.createElement(""div"")
+                newDiv.textContent = value
+                if (value == ""success"") {
+                    newDiv.style.backgroundColor = 'green'
+                } else {
+                    newDiv.style.backgroundColor = 'red'
+                }
+                document.body.appendChild(newDiv)
+            })","","1267","1653688333915","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","newDiv.textContent = value
+                if (value == ""success"") {
+                    newDiv.style.backgroundColor = 'green'
+                } else {
+                    newDiv.style.backgroundColor = 'red'
+                ","1388","1653688793622","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","let message = document.createElement(""p"")
+                message.textContent = value
+                message.style.fontSize = ""xx-large""
+                message.style.color = ""white""
+                message.style.padding = ""16px""
+                //Determine color
+                if (value == ""success"") {
+                    newDiv.style.backgroundColor = 'green'
+                } else {
+                    newDiv.style.backgroundColor = 'red'
+                }
+
+                newDiv.style.height = ""80px""
+                newDiv.style.width = ""50%""
+                newDiv.style.borderRadius = ""16px""
+                newDiv.appendChild(message)
+                newDiv.onclick = function() {newDiv.remove()","","1388","1653688793623","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","shipment","534","1653688865128","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","a","","534","1653688865847","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","a",,"535","1653688865848","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e"," ","","535","1653688865875","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e",""," ","535","1653688866024","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","d","","535","1653688866025","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","d",,"536","1653688866024","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","d","","536","1653688866185","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","d",,"537","1653688866187","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","i","","537","1653688866307","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","i",,"538","1653688866308","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","t","","538","1653688866471","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","t",,"539","1653688866472","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","i","","539","1653688866596","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","i",,"540","1653688866597","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","o","","540","1653688866664","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","o",,"541","1653688866664","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","n","","541","1653688866765","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","n",,"542","1653688866766","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","a","","542","1653688867335","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","a",,"543","1653688867336","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","l","","543","1653688867468","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","l",,"544","1653688867469","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",

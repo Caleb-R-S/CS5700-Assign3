@@ -20,7 +20,7 @@
         </p>
 
         <p>
-            <label for="shipment-info">Additional Info:</label>
+            <label for="additional-info">Additional Info:</label>
             <input type="text" name="additional-info" id="additional-info">
         </p>
 
@@ -36,9 +36,29 @@
         let additionalInfo = document.querySelector("#additional-info").value
         let timestamp = new Date().getTime()
         fetch(`http://127.0.0.1:8080/update?shipment=${shipmentId}&newStatus=${shipmentStatus}&timeStamp=${timestamp}&additionalInfo=${additionalInfo}`)
-            .then(response => response.json()) 
-            .then(data => console.log(data))
+            .then(response => response.text()) 
+            .then(value => {
+                console.log(value)
+                let newDiv = document.createElement("div")
+                let message = document.createElement("p")
+                message.textContent = value
+                message.style.fontSize = "xx-large"
+                message.style.color = "white"
+                message.style.padding = "16px"
+                //Determine color
+                if (value == "success") {
+                    newDiv.style.backgroundColor = 'green'
+                } else {
+                    newDiv.style.backgroundColor = 'red'
+                }
 
+                newDiv.style.height = "80px"
+                newDiv.style.width = "50%"
+                newDiv.style.borderRadius = "16px"
+                newDiv.appendChild(message)
+                newDiv.onclick = function() {newDiv.remove()}
+                document.body.appendChild(newDiv)
+            })
             
     }
     
