@@ -1,3 +1,4 @@
+import ShipmentTypes.*
 import UpdateStrategies.*
 import io.ktor.server.netty.*
 import io.ktor.server.routing.*
@@ -7,7 +8,7 @@ import io.ktor.server.response.*
 import io.ktor.server.engine.*
 import io.ktor.server.plugins.cors.routing.*
 
-object WebServer {
+object WebServerShipment {
     var isRunning = false
     var shipments = mutableListOf<Shipment>()
     private val shippingStrategies = mapOf<String, ShipmentUpdateStrategy>(
@@ -54,4 +55,21 @@ object WebServer {
             isRunning = true
         }
     }
+
+    fun shipmentFactory(initialUpdate: ShipmentUpdate, shipmentType: String): Shipment {
+        var shipment: Shipment
+        if (shipmentType == "Bulk") {
+            shipment = BulkShipment(initialUpdate)
+        } else if (shipmentType == "Express") {
+            shipment = ExpressShipment(initialUpdate)
+        } else if (shipmentType == "Overnight") {
+            shipment = OvernightShipment(initialUpdate)
+        } else if (shipmentType == "Standard") {
+            shipment = StandardShipment(initialUpdate)
+        } else {
+            throw RuntimeException("Invalid Shipment Type")
+        }
+        return shipment
+    }
+
 }

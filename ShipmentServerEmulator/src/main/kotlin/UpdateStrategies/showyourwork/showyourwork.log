@@ -9349,3 +9349,208 @@ class CanceledUpdate() : ShipmentUpdateStrategy{
 "a","VimMotionUpAction",,,"1653681557020","ShippedUpdate.kt","1.1.3 for 2021-2022 @t1",
 "a","VimMotionUpAction",,,"1653681557226","ShippedUpdate.kt","1.1.3 for 2021-2022 @t1",
 "a","VimInsertBeforeCursorAction",,,"1653681558093","ShippedUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","","package UpdateStrategies
+
+class CreatedUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: StringimeStamp: LonLodditionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""cancecreatedeviousStatus = previousStatus, timestamp = timeStamp)
+    }
+
+}package UpdateStrategies
+
+class CreatedUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, newStatus: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = newStatus, previousStatus = previousStatus, timestamp = timeStamp)
+    }
+
+}","0","1653769585900","CreatedUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","package UpdateStrategies
+
+class CreatedUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""created"", previousStatus = previousStatus, timestamp = timeStamp)
+    }
+
+}","","0","1653769585900","CreatedUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","","package UpdateStrategies
+
+class LocationUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: StringimeStamp: LonLodditionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""location"", previousStatus = previousStatus, timestamp = timeStamp, location = additionalInformation)
+    }
+
+}
+package UpdateStrategies
+
+class LocationUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, newStatus: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = newStatus, previousStatus = previousStatus, timestamp = timeStamp, location = additionalInformation)
+    }
+
+}
+","0","1653769585916","LocationUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","package UpdateStrategies
+
+class LocationUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""location"", previousStatus = previousStatus, timestamp = timeStamp, location = additionalInformation)
+    }
+
+}
+","","0","1653769585916","LocationUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","","package UpdateStrategies
+
+class ShippedUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus=""shipped"", previousStatus = previousStatus, timestamp = timeStamp, expectedDelivery = additionalInformation.toLong())
+    }
+}package UpdateStrategies
+
+class ShippedUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, newStatus: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = newStatus, previousStatus = previousStatus, timestamp = timeStamp, expectedDelivery = additionalInformation.toLong())
+    }
+}","0","1653769585947","ShippedUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","package UpdateStrategies
+
+class ShippedUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus=""shipped"", previousStatus = previousStatus, timestamp = timeStamp, expectedDelivery = additionalInformation.toLong())
+    }
+}","","0","1653769585947","ShippedUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","","package UpdateStrategies
+
+class CanceledUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""canceled"", previousStatus = previousStatus, timestamp = timeStamp)
+    }
+}package UpdateStrategies
+
+class CanceledUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, newStatus: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = newStatus, previousStatus = previousStatus, timestamp = timeStamp)
+    }
+}","0","1653769585962","CanceledUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","package UpdateStrategies
+
+class CanceledUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""canceled"", previousStatus = previousStatus, timestamp = timeStamp)
+    }
+}","","0","1653769585962","CanceledUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","","package UpdateStrategies
+
+class DelayedUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: StringimeStamp: LonLodditionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""delayed"", previousStatus = previousStatus, timestamp = timeStamp, expectedDelivery = additionalInformation.toLong())
+    }
+
+}
+package UpdateStrategies
+
+class DelayedUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, newStatus: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = newStatus, previousStatus = previousStatus, timestamp = timeStamp, expectedDelivery = additionalInformation.toLong())
+    }
+
+}
+","0","1653769585978","DelayedUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","package UpdateStrategies
+
+class DelayedUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""delayed"", previousStatus = previousStatus, timestamp = timeStamp, expectedDelivery = additionalInformation.toLong())
+    }
+
+}
+","","0","1653769585978","DelayedUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","","package UpdateStrategies
+
+class LostUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: StringimeStamp: LonLodditionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""lost"", previousStatus = previousStatus, timestamp = timeStamp)
+    }
+
+}package UpdateStrategies
+
+class LostUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, newStatus: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = newStatus, previousStatus = previousStatus, timestamp = timeStamp)
+    }
+
+}","0","1653769585995","LostUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","package UpdateStrategies
+
+class LostUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""lost"", previousStatus = previousStatus, timestamp = timeStamp)
+    }
+
+}","","0","1653769585995","LostUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","","package UpdateStrategies
+
+class NoteAddedUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: StringimeStamp: LonLodditionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""noteadded"", previousStatus = previousStatus, timestamp = timeStamp, note = additionalInformation)
+    }
+
+}package UpdateStrategies
+
+class NoteAddedUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, newStatus: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = newStatus, previousStatus = previousStatus, timestamp = timeStamp, note = additionalInformation)
+    }
+
+}","0","1653769585995","NoteAddedUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","package UpdateStrategies
+
+class NoteAddedUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""noteadded"", previousStatus = previousStatus, timestamp = timeStamp, note = additionalInformation)
+    }
+
+}","","0","1653769585995","NoteAddedUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","","package UpdateStrategies
+
+
+
+interface ShipmentUpdateStrategy {
+    fun update(shipmentId: String, newStatus: String, previousStatusLoring, timeStamp: Long, additionalInformation: String = ""NONE"") : ShipmentUpdate
+    // You can get rid of newStatus becuase you will know which strategy youre in
+}package UpdateStrategies
+
+interface ShipmentUpdateStrategy {
+    fun update(shipmentId: String, newStatus: String, previousStatus: String, timeStamp: Long, additionalInformation: String = ""NONE"") : ShipmentUpdate
+    // You can get rid of newStatus becuase you will know which strategy youre in
+}","0","1653769586095","ShipmentUpdateStrategy.kt","1.1.3 for 2021-2022 @t1",
+"e","package UpdateStrategies
+
+interface ShipmentUpdateStrategy {
+    fun update(shipmentId: String, previousStatus: String, timeStamp: Long, additionalInformation: String = ""NONE"") : ShipmentUpdate
+}","","0","1653769586095","ShipmentUpdateStrategy.kt","1.1.3 for 2021-2022 @t1",
+"e","","package UpdateStrategies
+
+class DeliveredUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: StringimeStamp: LonLodditionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""delivered"", previousStatus = previousStatus, timestamp = timeStamp)
+    }
+
+}
+package UpdateStrategies
+
+class DeliveredUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, newStatus: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = newStatus, previousStatus = previousStatus, timestamp = timeStamp)
+    }
+
+}
+","0","1653769586151","DeliveredUpdate.kt","1.1.3 for 2021-2022 @t1",
+"e","package UpdateStrategies
+
+class DeliveredUpdate() : ShipmentUpdateStrategy{
+    override fun update(shipmentId: String, previousStatus: String, timeStamp: Long, additionalInformation: String): ShipmentUpdate {
+        return ShipmentUpdate(shipmentId = shipmentId, newStatus = ""delivered"", previousStatus = previousStatus, timestamp = timeStamp)
+    }
+
+}
+","","0","1653769586151","DeliveredUpdate.kt","1.1.3 for 2021-2022 @t1",

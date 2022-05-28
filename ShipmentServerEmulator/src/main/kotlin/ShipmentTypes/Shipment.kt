@@ -1,6 +1,8 @@
+package ShipmentTypes
+
 import UpdateStrategies.ShipmentUpdate
 
-class Shipment(initialUpdate: ShipmentUpdate) {
+abstract class Shipment(initialUpdate: ShipmentUpdate) {
     val shipmentNotes = mutableListOf<String>()
     val shipmentUpdateHistory = mutableListOf<ShipmentUpdate>()
     val shipmentId = initialUpdate.shipmentId

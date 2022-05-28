@@ -1,3 +1,3 @@
 fun main(args: Array<String>) {
-    WebServer.runServer()
+    WebServerShipment.runServer()
 }
