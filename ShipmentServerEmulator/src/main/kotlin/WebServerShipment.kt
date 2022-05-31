@@ -33,18 +33,28 @@ object WebServerShipment {
                 }
                 routing {
                     get("/update") {
+                        var message = "Shipment update was successful"
                         val shipmentUpdate = shippingStrategies[call.parameters["newStatus"]]?.update(
                             shipmentId = call.parameters["shipmentId"] ?: "Unavailable",
                             previousStatus = shipments.find { it.shipmentId == call.parameters["shipmentId"] }?.newStatus ?: "Unavailable",
-                            timeStamp = call.parameters["timeStamp"]?.toLong() ?: 0,
+                            timeStamp = call.parameters["timestamp"]?.toLong() ?: 0,
                             additionalInformation = call.parameters["additionalInformation"] ?: "None"
                         )
                         println(call.parameters)
-                        val isFound = shipments.find { it.shipmentId == (shipmentUpdate?.shipmentId ?: "NONE") }
-//                        if (isFound)
+                        var shipmentToUpdate: Shipment? = findShipment(shipmentUpdate?.shipmentId.toString())
+                        if (shipmentToUpdate != null) {
 
-                        call.response.headers
-                        call.respondText("success", ContentType.Text.Html)
+                        } else {
+                            if (call.parameters["newStatus"] == "created") {
+                                shipmentToUpdate = shipmentFactory(initialUpdate = shipmentUpdate!!, shipmentType = call.parameters["type"].toString())
+                                shipments.add(shipmentToUpdate)
+                                message = "Shipment successfully created"
+                            } else {
+                                message = "Failed to create shipment ${call.parameters["shipmentId"]}. Please set status to \"created\""
+                            }
+                        }
+
+                        call.respondText(message, ContentType.Text.Html)
                     }
 
                     get("/track") {
@@ -58,13 +68,13 @@ object WebServerShipment {
 
     fun shipmentFactory(initialUpdate: ShipmentUpdate, shipmentType: String): Shipment {
         var shipment: Shipment
-        if (shipmentType == "Bulk") {
+        if (shipmentType == "bulk") {
             shipment = BulkShipment(initialUpdate)
-        } else if (shipmentType == "Express") {
+        } else if (shipmentType == "express") {
             shipment = ExpressShipment(initialUpdate)
-        } else if (shipmentType == "Overnight") {
+        } else if (shipmentType == "overnight") {
             shipment = OvernightShipment(initialUpdate)
-        } else if (shipmentType == "Standard") {
+        } else if (shipmentType == "standard") {
             shipment = StandardShipment(initialUpdate)
         } else {
             throw RuntimeException("Invalid Shipment Type")
@@ -72,4 +82,7 @@ object WebServerShipment {
         return shipment
     }
 
+    private fun findShipment(shipmentId: String): Shipment?{
+        return shipments.find { it.shipmentId == (shipmentId) }
+    }
 }

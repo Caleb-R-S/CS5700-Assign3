@@ -57,3 +57,4 @@ build.gradle.kts
 /src/main/kotlin/ShipmentTypes/Shipment.kt
 /src/main/kotlin/ShipmentTypes/BulkShipment.kt
 /src/main/kotlin/WebServerShipment.kt
+/src/main/ShipmentUpdater.html
