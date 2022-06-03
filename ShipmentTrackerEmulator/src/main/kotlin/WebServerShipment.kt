@@ -9,8 +9,8 @@ import io.ktor.server.engine.*
 import io.ktor.server.plugins.cors.routing.*
 
 object WebServerShipment {
-    var isRunning = false
-    var shipments = mutableListOf<Shipment>()
+    private var isRunning = false
+    private var shipments = mutableListOf<Shipment>()
     private val shippingStrategies = mapOf<String, ShipmentUpdateStrategy>(
         Pair("created", CreatedUpdate()),
         Pair("canceled", CanceledUpdate()),
