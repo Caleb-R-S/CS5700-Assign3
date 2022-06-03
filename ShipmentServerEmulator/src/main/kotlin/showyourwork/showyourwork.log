@@ -10479,3 +10479,416 @@ object WebServerShipment {
 "e","o","","3385","1653970016298","WebServerShipment.kt","1.1.3 for 2021-2022 @t1",
 "e","","S","3491","1653970017288","WebServerShipment.kt","1.1.3 for 2021-2022 @t1",
 "e","s","","3491","1653970017289","WebServerShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","import ShipmentTypes.*
+import UpdateStrategies.*
+import io.ktor.server.netty.*
+import io.ktor.server.routing.*
+import io.ktor.server.application.*
+import io.ktor.http.*
+import io.ktor.server.response.*
+import io.ktor.server.engine.*
+import io.ktor.server.plugins.cors.routing.*
+
+object WebServerShipment {
+    var isRunning = false
+    var shipments = mutableListOf<Shipment>()
+    private val shippingStrategies = mapOf<String, ShipmentUpdateStrategy>(
+        Pair(""created"", CreatedUpdate()),
+        Pair(""canceled"", CanceledUpdate()),
+        Pair(""delayed"", DelayedUpdate()),
+        Pair(""delivered"", DeliveredUpdate()),
+        Pair(""location"", LocationUpdate()),
+        Pair(""lost"", LostUpdate()),
+        Pair(""noteadded"", NoteAddedUpdate()),
+        Pair(""shipped"", ShippedUpdate()),
+    )
+    fun runServer() {
+        if (!isRunning) {
+            embeddedServer(Netty, 8080) {
+                install(CORS) {
+//                    allowSameOrigin = true
+//                    allowHost(""127.0.0.1:8080"")
+//                    allowHeader(HttpHeaders.ContentType)
+                    // This works but may be a little too open
+                    anyHost()
+                }
+                routing {
+                    get(""/update"") {
+                        val shipmentUpdate = shippingStrategies[call.parameters[""newStatus""]]?.update(
+                            shipmentId = call.parameters[""shipmentId""] ?: ""Unavailable"",
+                            previousStatus = shipments.find { it.shipmentId == call.parameters[""shipmentId""] }?.newStatus ?: ""Unavailable"",
+                            timeStamp = call.parameters[""timeStamp""]?.toLong() ?: 0,
+                            additionalInformation = call.parameters[""additionalInformation""] ?: ""None""
+                        )
+                        println(call.parameters)
+                        val isFound = shipments.find { it.shipmentId == (shipmentUpdate?.shipmentId ?: ""NONE"") }
+//                        if (isFound)
+
+                        call.response.headers
+                        call.respondText(""success"", ContentType.Text.Html)
+                    }
+
+                    get(""/track"") {
+                        val shipmentId = call.parameters[""shipmentId""]
+                    }
+                }
+            }.start(wait = true)
+            isRunning = true
+        }
+    }
+
+    fun createShipment(initialUpdate: ShipmentUpdate, shipmentType: String): Shipment {
+        var shipment: Shipment
+        if (shipmentType == ""Bulk"") {
+   $         shipment = BulkShipment(nitialUpdate)
+        } else if (shipmentType == ""Express"") {
+            shipment = ExpressShipment(initialUpdate)
+        } else if (shipmentType == ""O$vernight"") {
+            shipment = vernightShipment(initialUpdate)
+        } else if (shipmentType ==$ ""Standard"") {
+            shipment = tandardShipment(initialUpdate)
+        } else {
+            throw RuntimeException(""Invalid Shipment Type"")
+        }
+        return shipment
+    }
+
+}
+                install(CORS) {
+//                    allowSameOrigin = true
+//                    allowHost(""127.0.0.1:8080"")
+//                    allowHeader(HttpHeaders.ContentType)
+                    // This works but may be a little too open
+                    anyHost()
+                }
+                routing {
+                    get(""/update"") {
+                        val shipmentUpdate = shippingStrategies[call.parameters[""newStatus""]]?.update(
+                            shipmentId = call.parameters[""shipmentId""] ?: ""Unavailable"",
+                            previousStatus = shipments.find { it.shipmentId == call.parameters[""shipmentId""] }?.newStatus ?: ""Unavailable"",
+                            timeStamp = call.parameters[""timeStamp""]?.toLong() ?: 0,
+                            additionalInformation = call.parameters[""additionalInformation""] ?: ""None""
+                        )
+                        println(call.parameters)
+                        val isFound = shipments.find { it.shipmentId == (shipmentUpdate?.shipmentId ?: ""NONE"") }
+//                        if (isFound)
+
+                        call.response.headers
+                        call.respondText(""success"", ContentType.Text.Html)
+                    }
+
+                    get(""/track"") {
+                        val shipmentId = call.parameters[""shipmentId""]
+                    }
+                }
+            }.start(wait = true)
+            isRunning = true
+        }
+    }
+}","0","1654223871431","WebServer.kt","1.1.3 for 2021-2022 @t1",
+"e","","","0","1654223871431","WebServer.kt","1.1.3 for 2021-2022 @t1",
+"e","","package ShipmentTypesimport UpdateStrategies.ShipmentUpdate
+
+class Shipment(initialUpdate: ShipmentUpdate) {
+    val shipmentNotes = mutableListOf<String>()
+    val shipmentUpdateHistory = mutableListOf<ShipmentUpdate>()
+    val shipmentId = initialUpdate.shipmentId
+    var newStatus = initialUpdate.newStatus
+    var expectedDeliveryDateTimestamp = initialUpdate.expectedDelivery
+    var currentLocation = initialUpdate.location
+    init {
+        shipmentUpdateHistory.add(initialUpdate)
+    }
+
+
+    fun update(shipmentUpdate: ShipmentUpdate) {
+        shipmentUpdateHistory.add(shipmentUpdate)
+        newStatus = shipmentUpdate.newStatus?: newStatus
+        expectedDeliveryDateTimestamp = shipmentUpdate.expectedDelivery ?: expectedDeliveryDateTimestamp
+        currentLocation = shipmentUpdate.location ?: currentLocation
+        if (shipmentUpdate.note != null) {
+            shipmentNotes.add(shipmentUpdate.note)
+        }
+    }
+}","0","1654223872215","Shipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","","0","1654223872215","Shipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","import ShipmentTypes.*
+import UpdateStrategies.*
+import io.ktor.server.netty.*
+import io.ktor.server.routing.*
+import io.ktor.server.application.*
+import io.ktor.http.*
+import io.ktor.server.response.*
+import io.ktor.server.engine.*
+import io.ktor.server.plugins.cors.routing.*
+
+object WebServerShipment {
+    var isRunning = false
+    var shipments = mutableListOf<Shipment>()
+    private val shippingStrategies = mapOf<String, ShipmentUpdateStrategy>(
+        Pair(""created"", CreatedUpdate()),
+        Pair(""canceled"", CanceledUpdate()),
+        Pair(""delayed"", DelayedUpdate()),
+        Pair(""delivered"", DeliveredUpdate()),
+        Pair(""location"", LocationUpdate()),
+        Pair(""lost"", LostUpdate()),
+        Pair(""noteadded"", NoteAddedUpdate()),
+        Pair(""shipped"", ShippedUpdate()),
+    )
+    fun runServer() {
+        if (!isRunning) {
+            embeddedServer(Netty, 8080) {
+                install(CORS) {
+//                    allowSameOrigin = true
+//                    allowHost(""127.0.0.1:8080"")
+//                    allowHeader(HttpHeaders.ContentType)
+                    // This works but may be a little too open
+                    anyHost()
+                }
+                routing {
+                    get(""/update"") {
+                        val shipmentUpdate = shippingStrategies[call.parameters[""newStatus""]]?.update(
+                            shipmentId = call.parameters[""shipmentId""] ?: ""Unavailable"",
+                            previousStatus = shipments.find { it.shipmentId == call.parameters[""shipmentId""] }?.newStatus ?: ""Unavailable"",
+                            timeStamp = call.parameters[""timeStamp""]?.toLong() ?: 0,
+                            additionalInformation = call.parameters[""additionalInformation""] ?: ""None""
+                        )
+                        println(call.parameters)
+                        val isFound = shipments.find { it.shipmentId == (shipmentUpdate?.shipmentId ?: ""NONE"") }
+//                        if (isFound)
+
+                        call.response.headers
+                        call.respondText(""success"", ContentType.Text.Html)
+                    }
+
+                    get(""/track"") {
+                        val shipmentId = call.parameters[""shipmentId""]
+                    }
+                }
+            }.start(wait = true)
+            isRunning = true
+        }
+    }
+
+    fun createShipment(initialUpdate: ShipmentUpdate, shipmentType: String): Shipment {
+        var shipment: Shipment
+        if (shipmentType == ""Bulk"") {
+   $         shipment = BulkShipment(nitialUpdate)
+        } else if (shipmentType == ""Express"") {
+            shipment = ExpressShipment(initialUpdate)
+        } else if (shipmentType == ""O$vernight"") {
+            shipment = vernightShipment(initialUpdate)
+        } else if (shipmentType ==$ ""Standard"") {
+            shipment = tandardShipment(initialUpdate)
+        } else {
+            throw RuntimeException(""Invalid Shipment Type"")
+        }
+        return shipment
+    }
+
+}
+                install(CORS) {
+//                    allowSameOrigin = true
+//                    allowHost(""127.0.0.1:8080"")
+//                    allowHeader(HttpHeaders.ContentType)
+                    // This works but may be a little too open
+                    anyHost()
+                }
+                routing {
+                    get(""/update"") {
+                        val shipmentUpdate = shippingStrategies[call.parameters[""newStatus""]]?.update(
+                            shipmentId = call.parameters[""shipmentId""] ?: ""Unavailable"",
+                            previousStatus = shipments.find { it.shipmentId == call.parameters[""shipmentId""] }?.newStatus ?: ""Unavailable"",
+                            timeStamp = call.parameters[""timeStamp""]?.toLong() ?: 0,
+                            additionalInformation = call.parameters[""additionalInformation""] ?: ""None""
+                        )
+                        println(call.parameters)
+                        val isFound = shipments.find { it.shipmentId == (shipmentUpdate?.shipmentId ?: ""NONE"") }
+//                        if (isFound)
+
+                        call.response.headers
+                        call.respondText(""success"", ContentType.Text.Html)
+                    }
+
+                    get(""/track"") {
+                        val shipmentId = call.parameters[""shipmentId""]
+                    }
+                }
+            }.start(wait = true)
+            isRunning = true
+        }
+    }
+}","0","1654223872642","WebServer.kt","1.1.3 for 2021-2022 @t1",
+"e","","","0","1654223872642","WebServer.kt","1.1.3 for 2021-2022 @t1",
+"e","","import ShipmentTypes.*
+import UpdateStrategies.*
+import io.ktor.server.netty.*
+import io.ktor.server.routing.*
+import io.ktor.server.application.*
+import io.ktor.http.*
+import io.ktor.server.response.*
+import io.ktor.server.engine.*
+import io.ktor.server.plugins.cors.routing.*
+
+object WebServerShipment {
+    var isRunning = false
+    var shipments = mutableListOf<Shipment>()
+    private val shippingStrategies = mapOf<String, ShipmentUpdateStrategy>(
+        Pair(""created"", CreatedUpdate()),
+        Pair(""canceled"", CanceledUpdate()),
+        Pair(""delayed"", DelayedUpdate()),
+        Pair(""delivered"", DeliveredUpdate()),
+        Pair(""location"", LocationUpdate()),
+        Pair(""lost"", LostUpdate()),
+        Pair(""noteadded"", NoteAddedUpdate()),
+        Pair(""shipped"", ShippedUpdate()),
+    )
+    fun runServer() {
+        if (!isRunning) {
+            embeddedServer(Netty, 8080) {
+                install(CORS) {
+//                    allowSameOrigin = true
+//                    allowHost(""127.0.0.1:8080"")
+//                    allowHeader(HttpHeaders.ContentType)
+                    // This works but may be a little too open
+                    anyHost()
+                }
+                routing {
+                    get(""/update"") {
+                        var message = ""Shipment update was successful""
+                        val shipmentToUpdate= findShipment(shipmentUpdate?.shipmentId.toString())
+                        println(call.parameters)
+                        val shipmentUpdate = shippingStrategies[call.parameters[""newStatus""]]?.update(
+                            shipmentId = call.parameters[""shipmentId""] ?: ""Unavailable"",
+                            previousStatus = shipmentssfind { it.shipmentId == call.parameters[""shipmentId""] }?.newStatus ?: ""Unavailable"",
+                            timeStamp = call.parameters[""timeStamp""]?.toLong() ?: 0,
+                            additionalInformation = call.larameters[""additi: Shipment? onalInformation""] ?: ""None""
+                        )
+    ts.find { it.shipmentId shipmentToUpdate != nullp {
+
+            onte          else {
+                            if (call.parameters[""newStatus""] == ""created"") {
+                                shipmentToUpdate = shipmentFactory(initialUpdate = shipmentUpdate!!, shipmentType = call.parameters[""type""].toString())
+                                shipments.add(shipmentToUpdate)
+                                message = ""Shipment successfully created""
+                            } else {
+                                message = ""Failed to create shipment ${call.parameters[""shipmentId""]}. Please set status to \""created\""""
+                            }
+                        }  t.shipmentId == shipmentUpdate?.shipmentImessage       ntType.Text.Html)
+                    }
+
+                    get(""/track"") {
+                        val shipmentId = call.parameters[""shipmentId""]
+                    }
+                }
+            }.start(wait = true)$            isRunning = true
+        }
+    }
+
+    fun shipmentFactory(initialUpdate: ShipmentUpdate, shipmentType: String): Shipment {
+        var shipment: Shipment
+        if (shipmentType == ""bulk"") {
+            shipment = BulkShipment(initialUpdate)
+        } else if (shipmentType == ""express"") {
+            shipment = ExpressShipment(initialUpdate)
+        } else if (shipmentType == ""overnight"") {
+            shipment = OvernightShipment(initialUpdate)
+        } else if (shipmentType == ""standard"") {
+            shipment = StandardShipment(initialUpdate)
+        } else {
+            throw RuntimeException(""Invalid Shipment Type"")
+        }
+        return shipment
+    }
+
+    private fun findShipment(shipmentId: String): Shipment?
+        return shipments.find { it.shipmentId == (shipmentId) }     }
+}}","0","1654223872704","WebServerShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","import ShipmentTypes.*
+import UpdateStrategies.*
+import io.ktor.server.netty.*
+import io.ktor.server.routing.*
+import io.ktor.server.application.*
+import io.ktor.http.*
+import io.ktor.server.response.*
+import io.ktor.server.engine.*
+import io.ktor.server.plugins.cors.routing.*
+
+object WebServerShipment {
+    var isRunning = false
+    var shipments = mutableListOf<Shipment>()
+    private val shippingStrategies = mapOf<String, ShipmentUpdateStrategy>(
+        Pair(""created"", CreatedUpdate()),
+        Pair(""canceled"", CanceledUpdate()),
+        Pair(""delayed"", DelayedUpdate()),
+        Pair(""delivered"", DeliveredUpdate()),
+        Pair(""location"", LocationUpdate()),
+        Pair(""lost"", LostUpdate()),
+        Pair(""noteadded"", NoteAddedUpdate()),
+        Pair(""shipped"", ShippedUpdate()),
+    )
+    fun runServer() {
+        if (!isRunning) {
+            embeddedServer(Netty, 8080) {
+                install(CORS) {
+//                    allowSameOrigin = true
+//                    allowHost(""127.0.0.1:8080"")
+//                    allowHeader(HttpHeaders.ContentType)
+                    // This works but may be a little too open
+                    anyHost()
+                }
+                routing {
+                    get(""/update"") {
+                        var message = ""Shipment update was successful""
+                        val shipmentUpdate = shippingStrategies[call.parameters[""newStatus""]]?.update(
+                            shipmentId = call.parameters[""shipmentId""] ?: ""Unavailable"",
+                            previousStatus = shipments.find { it.shipmentId == call.parameters[""shipmentId""] }?.newStatus ?: ""Unavailable"",
+                            timeStamp = call.parameters[""timestamp""]?.toLong() ?: 0,
+                            additionalInformation = call.parameters[""additionalInformation""] ?: ""None""
+                        )
+                        println(call.parameters)
+                        var shipmentToUpdate: Shipment? = findShipment(shipmentUpdate?.shipmentId.toString())
+                        if (shipmentToUpdate != null) {
+
+                        } else {
+                            if (call.parameters[""newStatus""] == ""created"") {
+                                shipmentToUpdate = shipmentFactory(initialUpdate = shipmentUpdate!!, shipmentType = call.parameters[""type""].toString())
+                                shipments.add(shipmentToUpdate)
+                                message = ""Shipment successfully created""
+                            } else {
+                                message = ""Failed to create shipment ${call.parameters[""shipmentId""]}. Please set status to \""created\""""
+                            }
+                        }
+
+                        call.respondText(message, ContentType.Text.Html)
+                    }
+
+                    get(""/track"") {
+                        val shipmentId = call.parameters[""shipmentId""]
+                    }
+                }
+            }.start(wait = true)
+            isRunning = true
+        }
+    }
+
+    fun shipmentFactory(initialUpdate: ShipmentUpdate, shipmentType: String): Shipment {
+        var shipment: Shipment
+        if (shipmentType == ""bulk"") {
+            shipment = BulkShipment(initialUpdate)
+        } else if (shipmentType == ""express"") {
+            shipment = ExpressShipment(initialUpdate)
+        } else if (shipmentType == ""overnight"") {
+            shipment = OvernightShipment(initialUpdate)
+        } else if (shipmentType == ""standard"") {
+            shipment = StandardShipment(initialUpdate)
+        } else {
+            throw RuntimeException(""Invalid Shipment Type"")
+        }
+        return shipment
+    }
+
+    private fun findShipment(shipmentId: String): Shipment?{
+        return shipments.find { it.shipmentId == (shipmentId) }
+    }
+}","","0","1654223872704","WebServerShipment.kt","1.1.3 for 2021-2022 @t1",
