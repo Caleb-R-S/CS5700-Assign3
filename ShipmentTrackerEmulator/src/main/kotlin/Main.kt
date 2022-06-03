@@ -28,23 +28,7 @@ fun App() {
     println(text)
     var viewHelpers = remember { mutableStateListOf<ShipmentViewHelper>() }
     var unknownShipments = mutableStateListOf<String>()
-    var coroutineScope = rememberCoroutineScope()
-    var trackingSimulator = remember {TrackingSimulator(coroutineScope)}
-    println("I also gety called")
 
-
-//    //Test stuff
-//    var initialUpdate = ShipmentUpdate(updateType = "Created", shipmentId = "1234", previousStatus  = null, newStatus = "Created", location = "Tokyo")
-//    var nextUpdate = ShipmentUpdate(updateType = "Shipped", previousStatus = "Created", newStatus = "Shipped", location = "Japan", note="Package overweight")
-//    var finalUpdate = ShipmentUpdate(updateType = "Delivered", previousStatus = "Created", newStatus = "Delivered", location = "USA", note="Package dropped")
-//    var shipment = Shipment(initialUpdate)
-//    shipment.update(nextUpdate)
-//    shipment.update(finalUpdate)
-//    var firstView = ShipmentViewHelper(shipment)
-//    viewHelpers.add(firstView)
-    remember {
-        trackingSimulator.runSimulation()
-    }
     MaterialTheme {
         Column(modifier = Modifier.fillMaxWidth()){
             Row(modifier = Modifier.fillMaxWidth()) {
@@ -56,7 +40,7 @@ fun App() {
                     )
 
                     Button(onClick = {
-                        val shipment = trackingSimulator.findShipment(text)
+                        val shipment = WebServerShipment.findShipment(text)
                              if (shipment != null) {
                                  viewHelpers.add(ShipmentViewHelper(shipment))
                              } else {
@@ -69,7 +53,6 @@ fun App() {
             }
             Row(modifier = Modifier.fillMaxWidth()){
                 LazyColumn{
-                    println("Third times a charm")
                     items(viewHelpers) { viewHelper ->
                         Card(elevation = 16.dp, modifier = Modifier.padding(8.dp).border(width = 1.dp, color = Color.Black, shape = RoundedCornerShape(10)), shape = RoundedCornerShape(10)) {
                             Row {
@@ -112,6 +95,7 @@ fun App() {
 }
 
 fun main() = application {
+    WebServerShipment.runServer()
     Window(onCloseRequest = ::exitApplication) {
         App()
     }
