@@ -103,10 +103,8 @@ fun main() = application {
         App()
     }
 
-    WebServerShipment.runServer()
-//    MainScope().launch {
-//        WebServerShipment.runServer()
-//    }
-
+    MainScope().launch {
+        WebServerShipment.runServer()
+    }
     // MainScope, application {}, everything
 }

@@ -22,7 +22,7 @@ object WebServerShipment {
         Pair("shipped", ShippedUpdate()),
     )
     // suspend
-    fun runServer() {
+    suspend fun runServer() {
         if (!isRunning) {
             embeddedServer(Netty, 8080) {
                 install(CORS) {
