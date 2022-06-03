@@ -1,6 +1,7 @@
 import UpdateStrategies.ShipmentUpdate
 
-abstract class Shipment(initialUpdate: ShipmentUpdate) {
+abstract class Shipment(initialUpdate: ShipmentUpdate): Subject {
+    private val observers = mutableListOf<Observer>()
     val shipmentNotes = mutableListOf<String>()
     val shipmentUpdateHistory = mutableListOf<ShipmentUpdate>()
     val shipmentId = initialUpdate.shipmentId
@@ -11,6 +12,13 @@ abstract class Shipment(initialUpdate: ShipmentUpdate) {
         shipmentUpdateHistory.add(initialUpdate)
     }
 
+    override fun addObserver(observer: Observer) {
+        observers.add(observer)
+    }
+
+    override fun removeObserver(observer: Observer) {
+        observers.remove(observer)
+    }
 
     fun update(shipmentUpdate: ShipmentUpdate) {
         shipmentUpdateHistory.add(shipmentUpdate)
@@ -20,9 +28,12 @@ abstract class Shipment(initialUpdate: ShipmentUpdate) {
         if (shipmentUpdate.note != null) {
             shipmentNotes.add(shipmentUpdate.note)
         }
+        notifyObservers(shipmentUpdate)
     }
 
-    fun addObserver(shipmentViewHelper: ShipmentViewHelper) {
-
+    private fun notifyObservers(shipmentUpdate: ShipmentUpdate) {
+        for (observer in observers) {
+            observer.update(shipmentUpdate)
+        }
     }
 }

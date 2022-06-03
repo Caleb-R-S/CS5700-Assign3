@@ -18,6 +18,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 @Composable
 @Preview
@@ -95,8 +97,12 @@ fun App() {
 }
 
 fun main() = application {
-    WebServerShipment.runServer()
     Window(onCloseRequest = ::exitApplication) {
+        runBlocking {
+            launch {
+                WebServerShipment.runServer()
+            }
+        }
         App()
     }
 }
