@@ -17,14 +17,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 
 @Composable
 @Preview
 fun App() {
 
+    val coroutineScope = rememberCoroutineScope()
+    coroutineScope.launch {
+        WebServerShipment.runServer()
+    }
 
     var text by remember {mutableStateOf("")}
     println(text)
@@ -98,11 +100,13 @@ fun App() {
 
 fun main() = application {
     Window(onCloseRequest = ::exitApplication) {
-        runBlocking {
-            launch {
-                WebServerShipment.runServer()
-            }
-        }
         App()
     }
+
+    WebServerShipment.runServer()
+//    MainScope().launch {
+//        WebServerShipment.runServer()
+//    }
+
+    // MainScope, application {}, everything
 }

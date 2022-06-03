@@ -21,6 +21,7 @@ object WebServerShipment {
         Pair("noteadded", NoteAddedUpdate()),
         Pair("shipped", ShippedUpdate()),
     )
+    // suspend
     fun runServer() {
         if (!isRunning) {
             embeddedServer(Netty, 8080) {
