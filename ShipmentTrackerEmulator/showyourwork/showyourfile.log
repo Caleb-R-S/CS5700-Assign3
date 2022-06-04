@@ -47,3 +47,6 @@ src/main/kotlin/WebServer.kt
 src/main/kotlin/UpdateStrategies/CanceledUpdate.kt
 src/main/ShipmentUpdater.html
 build.gradle.kts
+/src/main/kotlin/WebServerShipment.kt
+/src/main/resources/ShipmentUpdater.html
+/src/main/kotlin/ShipmentTypes/InvalidShipment.kt

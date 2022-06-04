@@ -12,7 +12,7 @@
         <p>
             <select name="shipment-status" id="shipment-status" oninput="statusChecker()">
                 <option value="created">Created</option>
-                <option value="cancelled">Cancelled</option>
+                <option value="canceled">Canceled</option>
                 <option value="delayed">Delayed</option>
                 <option value="delivered">Delivered</option>
                 <option value="location">Location</option>
@@ -66,7 +66,8 @@ let update = function() {
             message.style.color = "white"
             message.style.padding = "16px"
             //Determine color
-            if (value == "success") {
+            debugger;
+            if (value.includes("Success")) {
                 newDiv.style.backgroundColor = 'green'
             } else {
                 newDiv.style.backgroundColor = 'red'

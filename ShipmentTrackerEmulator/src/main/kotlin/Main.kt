@@ -99,12 +99,8 @@ fun App() {
 }
 
 fun main() = application {
+    WebServerShipment.runServer()
     Window(onCloseRequest = ::exitApplication) {
         App()
     }
-
-    MainScope().launch {
-        WebServerShipment.runServer()
-    }
-    // MainScope, application {}, everything
 }

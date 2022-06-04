@@ -7,6 +7,8 @@ import io.ktor.http.*
 import io.ktor.server.response.*
 import io.ktor.server.engine.*
 import io.ktor.server.plugins.cors.routing.*
+import io.ktor.util.date.*
+import org.jetbrains.skiko.currentNanoTime
 
 object WebServerShipment {
     private var isRunning = false
@@ -22,7 +24,7 @@ object WebServerShipment {
         Pair("shipped", ShippedUpdate()),
     )
     // suspend
-    suspend fun runServer() {
+    fun runServer() {
         if (!isRunning) {
             embeddedServer(Netty, 8080) {
                 install(CORS) {
@@ -34,7 +36,7 @@ object WebServerShipment {
                 }
                 routing {
                     get("/update") {
-                        var message = "Shipment update was successful"
+                        var message = "Failed: Could not update shipment"
                         val shipmentUpdate = shippingStrategies[call.parameters["newStatus"]]?.update(
                             shipmentId = call.parameters["shipmentId"] ?: "Unavailable",
                             previousStatus = shipments.find { it.shipmentId == call.parameters["shipmentId"] }?.newStatus ?: "Unavailable",
@@ -44,12 +46,13 @@ object WebServerShipment {
                         println(call.parameters)
                         var shipmentToUpdate: Shipment? = findShipment(shipmentUpdate?.shipmentId.toString())
                         if (shipmentToUpdate != null) {
-
+                            shipmentToUpdate.update(shipmentUpdate!!)
+                            message = "Success: Updated to ${call.parameters["newStatus"]}"
                         } else {
                             if (call.parameters["newStatus"] == "created") {
                                 shipmentToUpdate = shipmentFactory(initialUpdate = shipmentUpdate!!, shipmentType = call.parameters["type"].toString())
                                 shipments.add(shipmentToUpdate)
-                                message = "Shipment successfully created"
+                                message = "Success: Shipment created"
                             } else {
                                 message = "Failed to create shipment ${call.parameters["shipmentId"]}. Please set status to \"created\""
                             }
@@ -58,27 +61,25 @@ object WebServerShipment {
                         call.respondText(message, ContentType.Text.Html)
                     }
 
-                    get("/track") {
-                        val shipmentId = call.parameters["shipmentId"]
-                    }
                 }
-            }.start(wait = true)
+            }.start(wait = false) // was true
             isRunning = true
         }
     }
 
     fun shipmentFactory(initialUpdate: ShipmentUpdate, shipmentType: String): Shipment {
+        val dayInMilliseconds = 86400000
         var shipment: Shipment
-        if (shipmentType == "bulk") {
+        if (shipmentType == "bulk" && initialUpdate.expectedDelivery!! > (initialUpdate.timestamp!! + dayInMilliseconds * 3)) {
             shipment = BulkShipment(initialUpdate)
-        } else if (shipmentType == "express") {
+        } else if (shipmentType == "express" && initialUpdate.expectedDelivery!! < (initialUpdate.timestamp!! + dayInMilliseconds * 3)) {
             shipment = ExpressShipment(initialUpdate)
-        } else if (shipmentType == "overnight") {
+        } else if (shipmentType == "overnight" && initialUpdate.expectedDelivery!! < (initialUpdate.timestamp!! + dayInMilliseconds)) {
             shipment = OvernightShipment(initialUpdate)
         } else if (shipmentType == "standard") {
             shipment = StandardShipment(initialUpdate)
         } else {
-            throw RuntimeException("Invalid Shipment Type")
+            shipment = InvalidShipment(initialUpdate)
         }
         return shipment
     }

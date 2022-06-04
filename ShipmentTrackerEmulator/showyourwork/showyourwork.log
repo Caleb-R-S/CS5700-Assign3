@@ -148,3 +148,120 @@ compose.desktop {
     implementation(""io.ktor:ktor-server-default-headers-jvm:2.0.1"")
     implementation(""io.ktor:ktor-server-cors:2.0.1"")
 ","","512","1654226226912","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267933827","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"e","","import org.jetbrains.compose.compose
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+plugins {
+    kotlin(""jvm"") version ""1.6.10""
+    id(""org.jetbrains.compose"") version ""1.1.0""
+}
+
+group = ""org.example""
+version = ""1.0""
+
+repositories {
+    google()
+    mavenCentral()
+    maven(""https://maven.pkg.jetbrains.space/public/p/compose/dev"")
+}
+
+dependencies {
+    testImplementation(kotlin(""test""))
+    implementation(compose.desktop.currentOs)
+    implementation(""io.ktor:ktor-server-core-jvm:2.0.1"")
+    implementation(""io.ktor:ktor-server-netty-jvm:2.0.1"")
+    implementation(""io.ktor:ktor-server-status-pages-jvm:2.0.1"")
+    implementation(""io.ktor:ktor-server-default-headers-jvm:2.0.1"")
+    implementation(""io.ktor:ktor-server-cors:2.0.1"")
+    implementation(""io.ktor:ktor-server-core-jvm:2.0.1"")
+    implementation(""io.ktor:ktor-server-netty-jvm:2.0.1"")
+    implementation(""io.ktor:ktor-server-status-pages-jvm:2.0.1"")
+    implementation(""io.ktor:ktor-server-default-headers-jvm:2.0.1"")
+    implementation(""io.ktor:ktor-server-cors:2.0.1"")
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = ""11""
+}
+
+compose.desktop {
+    application {
+        mainClass = ""MainKt""
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = ""ShipmentTrackerEmulator""
+            packageVersion = ""1.0.0""
+        }
+    }
+}","0","1654267933827","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"e","import org.jetbrains.compose.compose
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+plugins {
+    kotlin(""jvm"") version ""1.6.10""
+    id(""org.jetbrains.compose"") version ""1.1.0""
+}
+
+group = ""org.example""
+version = ""1.0""
+
+repositories {
+    google()
+    mavenCentral()
+    maven(""https://maven.pkg.jetbrains.space/public/p/compose/dev"")
+}
+
+dependencies {
+    testImplementation(kotlin(""test""))
+    implementation(compose.desktop.currentOs)
+    implementation(""io.ktor:ktor-server-core-jvm:2.0.1"")
+    implementation(""io.ktor:ktor-server-netty-jvm:2.0.1"")
+    implementation(""io.ktor:ktor-server-status-pages-jvm:2.0.1"")
+    implementation(""io.ktor:ktor-server-default-headers-jvm:2.0.1"")
+    implementation(""io.ktor:ktor-server-cors:2.0.1"")
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = ""11""
+}
+
+compose.desktop {
+    application {
+        mainClass = ""MainKt""
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = ""ShipmentTrackerEmulator""
+            packageVersion = ""1.0.0""
+        }
+    }
+}","","0","1654267933827","build.gradle.kts","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267934204","Main.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267934220",".gitignore","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267934569","Main.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935443","TrackingSimulator.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935552","Shipment.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935725","Delay.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935975","Shipment.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935975","ShipmentUpdateStrategy.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935975","ShippedUpdate.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935975","NoteAddedUpdate.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935975","LostUpdate.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935975","LocationUpdate.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935975","DeliveredUpdate.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935975","DelayedUpdate.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935975","CreatedUpdate.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935975","WebServer.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935975","CanceledUpdate.kt","1.1.3 for 2021-2022 @t1",
+"a","Outside edit","","","1654267935975","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"a","ShowYourWork Init","","","000","ShowYourWork Init","1.1.3 for 2021-2022 @t1",
