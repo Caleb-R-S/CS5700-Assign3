@@ -2763,3 +2763,202 @@ class BulkShipment(initialUpdate: ShipmentUpdate): Shipment(initialUpdate){
 "e",""," ","22","1654404518157","ValidateShipments.kt","1.1.3 for 2021-2022 @t1",
 "e","
 ","","22","1654404518158","ValidateShipments.kt","1.1.3 for 2021-2022 @t1",
+"e","override fun shipmentType(): kotlin.String{TODO(""Not yet implemented"")
+}","","155","1654407028730","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","kotlin","184","1654407028750","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","",".","184","1654407028753","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","
+    ","","155","1654407028757","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e"," ","","195","1654407028758","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","
+        ","","197","1654407028758","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","    ","","234","1654407028759","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","TODO(""Not yet implemented"")","206","1654407030176","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","r","","206","1654407032968","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","r",,"207","1654407032969","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","$","","207","1654407032981","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","$","207","1654407033084","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","e","","207","1654407033085","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","e",,"208","1654407033085","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","$","","208","1654407033099","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","$","208","1654407033185","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","t","","208","1654407033186","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","t",,"209","1654407033186","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","$","","209","1654407033196","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","$","209","1654407033260","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","u","","209","1654407033261","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","u",,"210","1654407033261","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","$","","210","1654407033270","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","$","210","1654407033407","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","r","","210","1654407033408","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","r",,"211","1654407033411","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","$","","211","1654407033420","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","$","211","1654407033455","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","n","","211","1654407033456","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","n",,"212","1654407033457","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","$","","212","1654407033465","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","$","212","1654407033611","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e"," ","","212","1654407033617","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"k"," ",,"213","1654407033618","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","""","","213","1654407034274","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","""","","214","1654407034275","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","""",,"214","1654407034276","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","b","","214","1654407034731","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","b",,"215","1654407034732","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","u","","215","1654407034838","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","u",,"216","1654407034838","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","l","","216","1654407034948","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","l",,"217","1654407034948","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","k","","217","1654407035077","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","k",,"218","1654407035078","BulkShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","package ShipmentTypes
+
+import Shipment
+import UpdateStrategies.ShipmentUpdate
+
+class ExpressShipment(initialUpdate: ShipmentUpdate): Shipment(initialUpdate) {
+
+}","","0","1654407040740","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","    ","","159","1654407040745","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"p","override fun shipmentType(): String {
+        return ""bulk""
+    }",,"163","1654407041057","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","override fun shipmentType(): String {
+        return ""bulk""
+    }","","163","1654407041059","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","
+","","159","1654407045083","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","    ","","159","1654407045086","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e",""," {
+    ","156","1654407045855","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","[","","155","1654407045859","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","]","","156","1654407045861","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","[",,"156","1654407045863","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"p"," {
+    ",,"156","1654407045869","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e"," {
+    ","","156","1654407045885","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","]","","163","1654407045894","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","]",,"164","1654407045895","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","]","163","1654407047578","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e",""," {
+    ","156","1654407048269","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","]","156","1654407051217","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","[","155","1654407051219","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e"," {
+    ","","156","1654407052608","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"p"," {
+    ",,"163","1654407054655","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","     {
+","","159","1654407054658","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e",""," ","163","1654407054662","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","
+","","165","1654407054663","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","
+","170","1654407054664","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","
+","165","1654407055608","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","
+","","169","1654407055609","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e"," ","","163","1654407055609","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e",""," {
+    ","163","1654407055611","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","bulk","217","1654407061033","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","e","","217","1654407061883","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","e",,"218","1654407061883","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","x","","218","1654407062124","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","x",,"219","1654407062125","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","p","","219","1654407062241","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","p",,"220","1654407062241","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","r","","220","1654407062403","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","r",,"221","1654407062404","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","e","","221","1654407062492","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","e",,"222","1654407062492","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","s","","222","1654407062529","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","s",,"223","1654407062530","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","s","","223","1654407062695","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","s",,"224","1654407062696","ExpressShipment.kt","1.1.3 for 2021-2022 @t1",
+"p","override fun shipmentType(): String {
+        return ""express""
+    }",,"164","1654407069708","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","override fun shipmentType(): String {
+        return ""express""
+    }","","164","1654407069711","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","
+","","159","1654407069749","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","
+","164","1654407069750","InvalidShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","package ShipmentTypes
+
+import Shipment
+import UpdateStrategies.ShipmentUpdate
+
+class OvernightShipment(initialUpdate: ShipmentUpdate): Shipment(initialUpdate) {
+
+}","","0","1654407073740","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","    ","","161","1654407073745","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"p","override fun shipmentType(): String {
+        return ""express""
+    }",,"165","1654407074098","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","override fun shipmentType(): String {
+        return ""express""
+    }","","165","1654407074103","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","package ShipmentTypes
+
+import Shipment
+import UpdateStrategies.ShipmentUpdate
+
+class StandardShipment(initialUpdate: ShipmentUpdate): Shipment(initialUpdate){
+
+}","","0","1654407077778","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","    ","","159","1654407077783","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"p","override fun shipmentType(): String {
+        return ""express""
+    }",,"163","1654407078408","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","override fun shipmentType(): String {
+        return ""express""
+    }","","163","1654407078411","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","express","217","1654407080855","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","s","","217","1654407081802","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","s",,"218","1654407081802","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","t","","218","1654407081901","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","t",,"219","1654407081901","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","a","","219","1654407082003","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","a",,"220","1654407082004","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","n","","220","1654407082099","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","n",,"221","1654407082100","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","d","","221","1654407082248","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","d",,"222","1654407082249","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","a","","222","1654407082426","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","a",,"223","1654407082426","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","r","","223","1654407082500","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","r",,"224","1654407082501","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","d","","224","1654407082599","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","d",,"225","1654407082600","StandardShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","express","219","1654407085431","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","o","","219","1654407086271","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","o",,"220","1654407086271","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","v","","220","1654407086425","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","v",,"221","1654407086426","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","e","","221","1654407086588","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","e",,"222","1654407086588","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","r","","222","1654407086673","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","r",,"223","1654407086673","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","n","","223","1654407086795","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","n",,"224","1654407086795","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","i","","224","1654407086928","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","i",,"225","1654407086928","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","g","","225","1654407087058","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","g",,"226","1654407087058","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","h","","226","1654407087151","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","h",,"227","1654407087152","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","t","","227","1654407087254","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"k","t",,"228","1654407087255","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e"," + """"","","229","1654407087887","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","
+        ","","231","1654407087889","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","       ","","241","1654407087892","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","       ","241","1654407089566","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e","","
+        ","231","1654407089568","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",
+"e",""," + """"","229","1654407089570","OvernightShipment.kt","1.1.3 for 2021-2022 @t1",

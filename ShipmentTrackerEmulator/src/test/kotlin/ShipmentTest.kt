@@ -1,3 +1,4 @@
+import ShipmentTypes.StandardShipment
 import UpdateStrategies.ShipmentUpdate
 import org.junit.jupiter.api.Test
 
@@ -8,7 +9,7 @@ internal class ShipmentTest {
     @Test
     fun creationOfShipment() {
         val initialUpdate = ShipmentUpdate("s100", "created", "processing", 10000)
-        val shipment = Shipment(initialUpdate)
+        val shipment = StandardShipment(initialUpdate)
         assertEquals(shipment.shipmentId, initialUpdate.shipmentId)
         assertEquals(shipment.newStatus, initialUpdate.newStatus)
         assertNull(shipment.expectedDeliveryDateTimestamp)
@@ -20,7 +21,7 @@ internal class ShipmentTest {
     @Test
     fun creationOfShipmentNotCreated() {
         val initialUpdate = ShipmentUpdate("s100", "shipped", "processing", 10000)
-        val shipment = Shipment(initialUpdate)
+        val shipment = StandardShipment(initialUpdate)
         assertEquals(shipment.shipmentId, initialUpdate.shipmentId)
         assertEquals(shipment.newStatus, initialUpdate.newStatus)
         assertNull(shipment.expectedDeliveryDateTimestamp)
@@ -31,7 +32,7 @@ internal class ShipmentTest {
     @Test
     fun addObserver() {
         val initialUpdate = ShipmentUpdate("s100", "created", "processing", 10000)
-        val shipment = Shipment(initialUpdate)
+        val shipment = StandardShipment(initialUpdate)
         val viewHelper = ShipmentViewHelper(shipment)
         assertEquals("created", viewHelper.shipmentStatus)
     }
@@ -39,7 +40,7 @@ internal class ShipmentTest {
     @Test
     fun removeObserver() {
         val initialUpdate = ShipmentUpdate("s100", "created", "processing", 10000)
-        val shipment = Shipment(initialUpdate)
+        val shipment = StandardShipment(initialUpdate)
         val viewHelper = ShipmentViewHelper(shipment)
         shipment.removeObserver(viewHelper)
         val newUpdate = ShipmentUpdate("s100", "location", "created", 10001,location="LA California")
@@ -50,7 +51,7 @@ internal class ShipmentTest {
     @Test
     fun updateShipped() {
         val initialUpdate = ShipmentUpdate("s100", "created", "processing", 10000)
-        val shipment = Shipment(initialUpdate)
+        val shipment = StandardShipment(initialUpdate)
         val viewHelper = ShipmentViewHelper(shipment)
         val newUpdate = ShipmentUpdate("s100", "shipped", "created", 10001, 15000)
         shipment.update(newUpdate)
@@ -61,7 +62,7 @@ internal class ShipmentTest {
     @Test
     fun updateCanceled() {
         val initialUpdate = ShipmentUpdate("s100", "created", "processing", 10000)
-        val shipment = Shipment(initialUpdate)
+        val shipment = StandardShipment(initialUpdate)
         val viewHelper = ShipmentViewHelper(shipment)
         val newUpdate = ShipmentUpdate("s100", "canceled", "created", 10001)
         shipment.update(newUpdate)
@@ -72,7 +73,7 @@ internal class ShipmentTest {
     @Test
     fun updateDelayed() {
         val initialUpdate = ShipmentUpdate("s100", "created", "processing", 10000)
-        val shipment = Shipment(initialUpdate)
+        val shipment = StandardShipment(initialUpdate)
         val viewHelper = ShipmentViewHelper(shipment)
         val shippedUpdate = ShipmentUpdate("s100", "shipped", "processing", 10000, 15000)
         shipment.update(shippedUpdate)
@@ -88,7 +89,7 @@ internal class ShipmentTest {
     @Test
     fun updateDelivered() {
         val initialUpdate = ShipmentUpdate("s100", "created", "processing", 10000)
-        val shipment = Shipment(initialUpdate)
+        val shipment = StandardShipment(initialUpdate)
         val viewHelper = ShipmentViewHelper(shipment)
         val newUpdate = ShipmentUpdate("s100", "delivered", "created", 10001)
         shipment.update(newUpdate)

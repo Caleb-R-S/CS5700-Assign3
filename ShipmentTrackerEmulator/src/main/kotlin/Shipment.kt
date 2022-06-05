@@ -49,4 +49,6 @@ abstract class Shipment(initialUpdate: ShipmentUpdate): Subject {
             observer.invalidateShipment()
         }
     }
+
+    abstract fun shipmentType(): String
 }

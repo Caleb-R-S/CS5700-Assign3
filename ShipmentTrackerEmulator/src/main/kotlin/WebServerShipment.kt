@@ -59,7 +59,7 @@ object WebServerShipment {
                         } else {
                             if (call.parameters["newStatus"] == "created") {
                                 shipmentToUpdate = shipmentFactory(initialUpdate = shipmentUpdate!!, shipmentType = call.parameters["type"].toString())
-                                shipments.add(shipmentToUpdate)
+                                addShipment(shipmentToUpdate)
                                 message = "Success: Shipment created"
                             } else {
                                 message = "Failed to create shipment ${call.parameters["shipmentId"]}. Please set status to \"created\""
@@ -93,6 +93,10 @@ object WebServerShipment {
 
     fun findShipment(shipmentId: String): Shipment?{
         return shipments.find { it.shipmentId == (shipmentId) }
+    }
+
+    fun addShipment(shipment: Shipment) {
+        shipments.add(shipment)
     }
 
 }

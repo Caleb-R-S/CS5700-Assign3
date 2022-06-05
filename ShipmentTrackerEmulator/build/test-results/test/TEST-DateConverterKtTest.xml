@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DateConverterKtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-05-27T02:18:30" hostname="DESKTOP-L9AAHI9" time="0.089">
+<testsuite name="DateConverterKtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-06-05T06:03:19" hostname="DESKTOP-L9AAHI9" time="0.058">
   <properties/>
-  <testcase name="dateConverterNull()" classname="DateConverterKtTest" time="0.08"/>
+  <testcase name="dateConverterNull()" classname="DateConverterKtTest" time="0.05"/>
   <testcase name="dateConverter()" classname="DateConverterKtTest" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

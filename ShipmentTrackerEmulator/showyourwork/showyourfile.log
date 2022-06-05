@@ -54,3 +54,8 @@ build.gradle.kts
 /src/main/kotlin/ShipmentTypes/BulkShipment.kt
 /src/main/kotlin/ShipmentValidator.kt
 /src/main/kotlin/ShipmentTypes/ValidateShipments.kt
+/src/test/kotlin/WebServerShipmentTest.java
+/src/test/kotlin/WebServerShipmentTest.kt
+/src/main/kotlin/ShipmentTypes/ExpressShipment.kt
+/src/main/kotlin/ShipmentTypes/OvernightShipment.kt
+/src/main/kotlin/ShipmentTypes/StandardShipment.kt
