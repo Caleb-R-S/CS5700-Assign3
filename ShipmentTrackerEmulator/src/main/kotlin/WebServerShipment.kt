@@ -48,10 +48,12 @@ object WebServerShipment {
                             message = "Success: Updated to ${call.parameters["newStatus"]}"
                             if (shipmentUpdate.newStatus in listOf("lost", "canceled")) {
                                 message += "\n Please note that the shipment will not be delivered"
+                                shipmentToUpdate.invalidateShipment()
                             } else if (shipmentUpdate.newStatus in listOf("shipped", "delayed")) {
                                 val stillOnTime = validateShipment(shipmentToUpdate, shipmentToUpdate.shipmentCreatedTimestamp!!, shipmentUpdate.expectedDelivery!!)
                                 if (!stillOnTime) {
                                     message += "\n Please note that the shipment may not arrive on time"
+                                    shipmentToUpdate.invalidateShipment()
                                 }
                             }
                         } else {

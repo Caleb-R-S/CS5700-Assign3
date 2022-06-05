@@ -38,4 +38,15 @@ abstract class Shipment(initialUpdate: ShipmentUpdate): Subject {
             observer.update(shipmentUpdate)
         }
     }
+
+    fun invalidateShipment() {
+        isOnTrack = false
+        notifyObserverShipmentIsInvalid()
+    }
+
+    private fun notifyObserverShipmentIsInvalid() {
+        for (observer in observers) {
+            observer.invalidateShipment()
+        }
+    }
 }
