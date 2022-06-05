@@ -8,6 +8,8 @@ abstract class Shipment(initialUpdate: ShipmentUpdate): Subject {
     var newStatus = initialUpdate.newStatus
     var expectedDeliveryDateTimestamp = initialUpdate.expectedDelivery
     var currentLocation = initialUpdate.location
+    val shipmentCreatedTimestamp = initialUpdate.timestamp
+    var isOnTrack = true
     init {
         shipmentUpdateHistory.add(initialUpdate)
     }

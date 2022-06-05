@@ -50,3 +50,7 @@ build.gradle.kts
 /src/main/kotlin/WebServerShipment.kt
 /src/main/resources/ShipmentUpdater.html
 /src/main/kotlin/ShipmentTypes/InvalidShipment.kt
+/src/main/kotlin/ShipmentTypes/Breachable.kt
+/src/main/kotlin/ShipmentTypes/BulkShipment.kt
+/src/main/kotlin/ShipmentValidator.kt
+/src/main/kotlin/ShipmentTypes/ValidateShipments.kt

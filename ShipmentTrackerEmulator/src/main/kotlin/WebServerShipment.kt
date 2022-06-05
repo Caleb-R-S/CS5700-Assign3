@@ -7,8 +7,6 @@ import io.ktor.http.*
 import io.ktor.server.response.*
 import io.ktor.server.engine.*
 import io.ktor.server.plugins.cors.routing.*
-import io.ktor.util.date.*
-import org.jetbrains.skiko.currentNanoTime
 
 object WebServerShipment {
     private var isRunning = false
@@ -48,6 +46,14 @@ object WebServerShipment {
                         if (shipmentToUpdate != null) {
                             shipmentToUpdate.update(shipmentUpdate!!)
                             message = "Success: Updated to ${call.parameters["newStatus"]}"
+                            if (shipmentUpdate.newStatus in listOf("lost", "canceled")) {
+                                message += "\n Please note that the shipment will not be delivered"
+                            } else if (shipmentUpdate.newStatus in listOf("shipped", "delayed")) {
+                                val stillOnTime = validateShipment(shipmentToUpdate, shipmentToUpdate.shipmentCreatedTimestamp!!, shipmentUpdate.expectedDelivery!!)
+                                if (!stillOnTime) {
+                                    message += "\n Please note that the shipment may not arrive on time"
+                                }
+                            }
                         } else {
                             if (call.parameters["newStatus"] == "created") {
                                 shipmentToUpdate = shipmentFactory(initialUpdate = shipmentUpdate!!, shipmentType = call.parameters["type"].toString())
@@ -68,13 +74,12 @@ object WebServerShipment {
     }
 
     fun shipmentFactory(initialUpdate: ShipmentUpdate, shipmentType: String): Shipment {
-        val dayInMilliseconds = 86400000
         var shipment: Shipment
-        if (shipmentType == "bulk" && initialUpdate.expectedDelivery!! > (initialUpdate.timestamp!! + dayInMilliseconds * 3)) {
+        if (shipmentType == "bulk") {
             shipment = BulkShipment(initialUpdate)
-        } else if (shipmentType == "express" && initialUpdate.expectedDelivery!! < (initialUpdate.timestamp!! + dayInMilliseconds * 3)) {
+        } else if (shipmentType == "express") {
             shipment = ExpressShipment(initialUpdate)
-        } else if (shipmentType == "overnight" && initialUpdate.expectedDelivery!! < (initialUpdate.timestamp!! + dayInMilliseconds)) {
+        } else if (shipmentType == "overnight") {
             shipment = OvernightShipment(initialUpdate)
         } else if (shipmentType == "standard") {
             shipment = StandardShipment(initialUpdate)
@@ -87,4 +92,5 @@ object WebServerShipment {
     fun findShipment(shipmentId: String): Shipment?{
         return shipments.find { it.shipmentId == (shipmentId) }
     }
+
 }
