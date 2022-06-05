@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ShipmentTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-06-05T06:03:19" hostname="DESKTOP-L9AAHI9" time="0.147">
+<testsuite name="ShipmentTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-06-05T06:14:44" hostname="DESKTOP-L9AAHI9" time="0.282">
   <properties/>
-  <testcase name="removeObserver()" classname="ShipmentTest" time="0.126"/>
-  <testcase name="creationOfShipment()" classname="ShipmentTest" time="0.002"/>
-  <testcase name="addObserver()" classname="ShipmentTest" time="0.002"/>
-  <testcase name="updateDelayed()" classname="ShipmentTest" time="0.002"/>
-  <testcase name="creationOfShipmentNotCreated()" classname="ShipmentTest" time="0.001"/>
+  <testcase name="removeObserver()" classname="ShipmentTest" time="0.258"/>
+  <testcase name="creationOfShipment()" classname="ShipmentTest" time="0.001"/>
+  <testcase name="addObserver()" classname="ShipmentTest" time="0.001"/>
+  <testcase name="updateDelayed()" classname="ShipmentTest" time="0.004"/>
+  <testcase name="creationOfShipmentNotCreated()" classname="ShipmentTest" time="0.004"/>
   <testcase name="updateShipped()" classname="ShipmentTest" time="0.001"/>
-  <testcase name="updateCanceled()" classname="ShipmentTest" time="0.002"/>
+  <testcase name="updateCanceled()" classname="ShipmentTest" time="0.001"/>
   <testcase name="updateDelivered()" classname="ShipmentTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

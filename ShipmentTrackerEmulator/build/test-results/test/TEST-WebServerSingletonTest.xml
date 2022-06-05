@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="WebServerShipmentTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-06-05T06:03:19" hostname="DESKTOP-L9AAHI9" time="3.099">
+<testsuite name="WebServerSingletonTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-06-05T06:14:40" hostname="DESKTOP-L9AAHI9" time="3.69">
   <properties/>
-  <testcase name="shipmentFactoryBulk()" classname="WebServerShipmentTest" time="0.061"/>
-  <testcase name="runServer()" classname="WebServerShipmentTest" time="3.017"/>
-  <testcase name="findShipmentNull()" classname="WebServerShipmentTest" time="0.002"/>
-  <testcase name="findShipmentNotNull()" classname="WebServerShipmentTest" time="0.004"/>
-  <testcase name="shipmentFactoryStandard()" classname="WebServerShipmentTest" time="0.006"/>
-  <testcase name="shipmentFactoryOvernight()" classname="WebServerShipmentTest" time="0.001"/>
-  <testcase name="shipmentFactoryExpress()" classname="WebServerShipmentTest" time="0.001"/>
+  <testcase name="shipmentFactoryBulk()" classname="WebServerSingletonTest" time="0.186"/>
+  <testcase name="runServer()" classname="WebServerSingletonTest" time="3.485"/>
+  <testcase name="findShipmentNull()" classname="WebServerSingletonTest" time="0.003"/>
+  <testcase name="findShipmentNotNull()" classname="WebServerSingletonTest" time="0.003"/>
+  <testcase name="shipmentFactoryStandard()" classname="WebServerSingletonTest" time="0.003"/>
+  <testcase name="shipmentFactoryOvernight()" classname="WebServerSingletonTest" time="0.002"/>
+  <testcase name="shipmentFactoryExpress()" classname="WebServerSingletonTest" time="0.001"/>
   <system-out><![CDATA[Parameters [shipmentId=[s10], newStatus=[created], timestamp=[160225465], additionalInformation=[], type=[standard]]
 Parameters [shipmentId=[s10], newStatus=[shipped], timestamp=[160225465], additionalInformation=[1000000], type=[standard]]
 Parameters [shipmentId=[s10], newStatus=[delayed], timestamp=[160225465], additionalInformation=[1000000], type=[standard]]
