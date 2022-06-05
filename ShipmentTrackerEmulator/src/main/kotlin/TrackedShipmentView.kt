@@ -22,6 +22,9 @@ fun trackShipmentView(viewHelper: ShipmentViewHelper) {
                     )
                 }
                 Row {
+                    Text("The shipment ${if (viewHelper.isOnTrack) {"is"} else {"is NOT"}} on track")
+                }
+                Row {
                     Text("Status Updates:")
                 }
                 Row {

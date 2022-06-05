@@ -1,0 +1,170 @@
+"e","<!DOCTYPE html>
+<html lang=""en"">
+<head>
+    <meta charset=""UTF-8"">
+    <title>ShipmentUpdater</title>
+</head>
+<body>
+
+    <h1>Please Enter the shipping information below:</h1>
+
+    <div>
+        <p>
+            <select name=""shipment-status"" id=""shipment-status"" oninput=""statusChecker()"">
+                <option value=""created"">Created</option>
+                <option value=""cancelled"">Cancelled</option>
+                <option value=""delayed"">Delayed</option>
+                <option value=""delivered"">Delivered</option>
+                <option value=""location"">Location</option>
+                <option value=""lost"">Lost</option>
+                <option value=""noteadded"">Note Added</option>
+                <option value=""shipped"">Shipped</option>
+            </select>
+            <label for=""shipment-status""> : Status</label>
+        </p>
+
+        <p>
+            <input type=""text"" name=""shipment-id"" id=""shipment-id"" onchange=""statusChecker"">
+            <label for=""shipment-id""> : Shipment Id</label>
+        </p>
+
+
+    <p>
+        <input type=""text"" name=""additional-info"" id=""additional-info"">
+        <label for=""additional-info""> : Additional Info</label>
+    </p>
+
+    <p>
+        <select name=""shipment-type"" id=""shipment-type"">
+            <option value=""bulk"">Bulk</option>
+            <option value=""express"">Express</option>
+            <option value=""overnight"">Overnight</option>
+            <option value=""standard"">Standard</option>
+        </select>
+        <label for=""shipment-type""> : Shipment Type</label>
+    </p>
+    <button id=""update"">Update Shipment</button>
+</div>
+
+</body>
+
+<script>
+let update = function() {
+    let shipmentId = document.querySelector(""#shipment-id"").value
+    let shipmentStatus = document.querySelector(""#shipment-status"").value
+    let additionalInfo = document.querySelector(""#additional-info"").value
+    let timestamp = new Date().getTime()
+    let type = document.querySelector(""#shipment-type"").value
+    fetch(`http://127.0.0.1:8080/update?shipmentId=${shipmentId}&newStatus=${shipmentStatus}&timestamp=${timestamp}&additionalInformation=${additionalInfo}&type=${type}`)
+        .then(response => response.text())
+        .then(value => {
+            console.log(value)
+            let newDiv = document.createElement(""div"")
+            let message = document.createElement(""p"")
+            message.textContent = value
+            message.style.fontSize = ""xx-large""
+            message.style.color = ""white""
+            message.style.padding = ""16px""
+            //Determine color
+            if (value== ""success"") {
+                newDiv.style.backgroundColor = 'green'
+            } else {
+                newDiv.style.backgroundColor = 'red'
+            }
+
+            newDiv.style.height = ""80px""
+            newDiv.style.width = ""50%""
+            newDiv.style.borderRadius = ""16px""
+            newDiv.appendChild(message)
+            newDiv.onclick = function() {newDiv.remove()}
+            document.body.appendChild(newDiv)
+        })
+
+}
+
+let button = document.querySelector(""#update"")
+button.onclick = update
+</script>
+
+<script>
+    function statusChecker() {
+        let textToCheck = document.querySelector(""#shipment-status"").value
+        let toEnable = document.querySelector(""#shipment-type"")
+        if (textToCheck == ""created"") {
+            toEnable.disabled = false
+        } else {
+            toEnable.disabled = true
+        }
+        console.log(""hello"")
+    }
+</script>
+</html>
+","","0","1654371435861","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e",".","","2569","1654371436737","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k",".",,"2570","1654371436737","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e"," ","","2570","1654371436810","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e",""," ","2570","1654371437093","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","i","","2570","1654371437094","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","i",,"2571","1654371437093","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","n","","2571","1654371437183","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","n",,"2572","1654371437183","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","c","","2572","1654371437361","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","c",,"2573","1654371437365","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","l","","2573","1654371437460","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","l",,"2574","1654371437461","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","u","","2574","1654371437555","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","u",,"2575","1654371437559","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","e","","2575","1654371437863","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","e",,"2576","1654371437867","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","e","2575","1654371438225","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","d","","2575","1654371438301","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","d",,"2576","1654371438301","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e"," ","","2576","1654371438317","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e",""," ","2576","1654371438439","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","e","","2576","1654371438440","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","e",,"2577","1654371438443","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","s","","2577","1654371438506","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","s",,"2578","1654371438510","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","(","","2578","1654371440405","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","(",,"2579","1654371440409","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e",")","","2579","1654371440417","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k",")",,"2580","1654371440417","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","(","","2580","1654371441393","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","(",,"2581","1654371441397","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","(","2580","1654371442362","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","=","2581","1654371442509","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","=","2580","1654371442884","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e",""," ","2580","1654371443355","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","""success""","2580","1654371446644","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"p","""success""",,"2579","1654371447685","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","""success""","","2579","1654371447689","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","s","2580","1654371453714","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","S","","2580","1654371453715","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","    
+        ","","2556","1654371799415","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","d","","2560","1654371799935","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","d",,"2561","1654371799936","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e"," ","","2561","1654371799951","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e",""," ","2561","1654371800100","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","e","","2561","1654371800101","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","e",,"2562","1654371800101","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","b","","2562","1654371800340","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","b",,"2563","1654371800341","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","u","","2563","1654371800474","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","u",,"2564","1654371800475","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","g","","2564","1654371800683","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","g",,"2565","1654371800684","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","g","","2565","1654371800809","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","g",,"2566","1654371800809","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","e","","2566","1654371800968","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","e",,"2567","1654371800970","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","r","","2567","1654371801038","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k","r",,"2568","1654371801039","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e",";","","2568","1654371801623","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"k",";",,"2569","1654371801624","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","l","384","1654371985837","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","l","394","1654371987694","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","-->","","2797","1654404320038","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","<!--","","2757","1654404320046","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",
+"e","","<!--            newDiv.style.height = ""80px""-->
+","2757","1654404324114","ShipmentUpdater.html","1.1.3 for 2021-2022 @t1",

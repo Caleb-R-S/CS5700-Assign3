@@ -1,6 +1,6 @@
 import UpdateStrategies.ShipmentUpdate
 
-class Shipment(initialUpdate: ShipmentUpdate): Subject {
+abstract class Shipment(initialUpdate: ShipmentUpdate): Subject {
     private val observers = mutableListOf<Observer>()
     val shipmentNotes = mutableListOf<String>()
     val shipmentUpdateHistory = mutableListOf<ShipmentUpdate>()
@@ -8,6 +8,8 @@ class Shipment(initialUpdate: ShipmentUpdate): Subject {
     var newStatus = initialUpdate.newStatus
     var expectedDeliveryDateTimestamp = initialUpdate.expectedDelivery
     var currentLocation = initialUpdate.location
+    val shipmentCreatedTimestamp = initialUpdate.timestamp
+    var isOnTrack = true
     init {
         shipmentUpdateHistory.add(initialUpdate)
     }
@@ -28,9 +30,23 @@ class Shipment(initialUpdate: ShipmentUpdate): Subject {
         if (shipmentUpdate.note != null) {
             shipmentNotes.add(shipmentUpdate.note)
         }
-        // put in method called notifyObservers
+        notifyObservers(shipmentUpdate)
+    }
+
+    private fun notifyObservers(shipmentUpdate: ShipmentUpdate) {
         for (observer in observers) {
             observer.update(shipmentUpdate)
+        }
+    }
+
+    fun invalidateShipment() {
+        isOnTrack = false
+        notifyObserverShipmentIsInvalid()
+    }
+
+    private fun notifyObserverShipmentIsInvalid() {
+        for (observer in observers) {
+            observer.invalidateShipment()
         }
     }
 }
