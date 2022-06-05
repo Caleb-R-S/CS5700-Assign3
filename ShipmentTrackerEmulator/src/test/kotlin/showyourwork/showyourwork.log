@@ -18485,3 +18485,129 @@ import kotlinx.coroutines.runBlocking","","354","1654408311204","WebServerShipme
 "a","VimMotionUpAction",,,"1654408970287","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
 "a","VimMotionUpAction",,,"1654408970319","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
 "a","VimMotionUpAction",,,"1654408970350","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"a","Renaming object WebServerShipment to WebServerSingleton",,,"1654409103989","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","hipment","517","1654409104345","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","ingleton","","517","1654409104346","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","hipment","2943","1654409104386","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","ingleton","","2943","1654409104387","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","hipment","3281","1654409104419","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","ingleton","","3281","1654409104420","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","hipment","3567","1654409104450","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","ingleton","","3567","1654409104451","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","hipment","3846","1654409104484","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","ingleton","","3846","1654409104485","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","hipment","4116","1654409104516","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","ingleton","","4116","1654409104517","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","hipment","4195","1654409104545","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","ingleton","","4195","1654409104546","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","hipment","4420","1654409104577","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","ingleton","","4420","1654409104578","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","hipment","4486","1654409104615","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","ingleton","","4486","1654409104616","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","hipment","4551","1654409104642","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","ingleton","","4551","1654409104643","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","hipment","452","1654409104695","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","ingleton","","452","1654409104696","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"a","delete C:\Users\Caleb Syndergaard\Documents\School\Summer 2022\CS5700\Assign3\ShipmentTrackerEmulator\src\main\kotlin\Main.kt",,,"1654409109258","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"a","delete C:\Users\Caleb Syndergaard\Documents\School\Summer 2022\CS5700\Assign3\ShipmentTrackerEmulator\src\test\kotlin\WebServerSingletonTest.kt",,,"1654409109278","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","
+import ShipmentTypes.ExpressShipment
+import ShipmentTypes.OvernightShipment
+import ShipmentTypes.StandardShipment
+import UpdateStrategies.ShipmentUpdate
+import org.junit.jupiter.api.Test
+
+import org.junit.jupiter.api.Assertions.*
+
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import io.ktor.client.*
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+
+internal class WebServerSingletonTest {
+
+    @Test
+    fun runServer() {
+        WebServerSingleton.runServer()
+        val client = HttpClient()
+
+        runBlocking {
+            launch {
+                var responseCreated: HttpResponse = client.get(""http://127.0.0.1:8080/update?shipmentId=s10&newStatus=created&timestamp=160225465&additionalInformation=&type=standard"")
+                var responseShipped: HttpResponse = client.get(""http://127.0.0.1:8080/update?shipmentId=s10&newStatus=shipped&timestamp=160225465&additionalInformation=1000000&type=standard"")
+                var responseDelayed: HttpResponse = client.get(""http://127.0.0.1:8080/update?shipmentId=s10&newStatus=delayed&timestamp=160225465&additionalInformation=1000000&type=standard"")
+                var responseCanceled: HttpResponse = client.get(""http://127.0.0.1:8080/update?shipmentId=s10&newStatus=canceled&timestamp=160225465&additionalInformation=1000000&type=standard"")
+                var responseNoteAdded: HttpResponse = client.get(""http://127.0.0.1:8080/update?shipmentId=s10&newStatus=noteadded&timestamp=160225465&additionalInformation=1000000&type=standard"")
+                var responseLost: HttpResponse = client.get(""http://127.0.0.1:8080/update?shipmentId=s10&newStatus=lost&timestamp=160225465&additionalInformation=1000000&type=standard"")
+                var responseLocation: HttpResponse = client.get(""http://127.0.0.1:8080/update?shipmentId=s10&newStatus=location&timestamp=160225465&additionalInformation=1000000&type=standard"")
+                var responseDelivered: HttpResponse = client.get(""http://127.0.0.1:8080/update?shipmentId=s10&newStatus=delivered&timestamp=160225465&additionalInformation=1000000&type=standard"")
+
+                assertEquals(""200 OK"", responseCreated.status.toString())
+                assertEquals(""200 OK"", responseCanceled.status.toString())
+                assertEquals(""200 OK"", responseDelayed.status.toString())
+                assertEquals(""200 OK"", responseDelivered.status.toString())
+                assertEquals(""200 OK"", responseLost.status.toString())
+                assertEquals(""200 OK"", responseLocation.status.toString())
+                assertEquals(""200 OK"", responseShipped.status.toString())
+                assertEquals(""200 OK"", responseNoteAdded.status.toString())
+            }
+        }
+    }
+
+    @Test
+    fun shipmentFactoryStandard() {
+        val initialUpdate = ShipmentUpdate(""s100"", ""created"", ""processing"", 10000)
+        val newShipment = WebServerSingleton.shipmentFactory(initialUpdate, ""standard"")
+        assertEquals(""standard"", newShipment.shipmentType())
+        assertTrue(newShipment is StandardShipment)
+    }
+
+    @Test
+    fun shipmentFactoryOvernight() {
+        val initialUpdate = ShipmentUpdate(""s100"", ""created"", ""processing"", 10000)
+        val newShipment = WebServerSingleton.shipmentFactory(initialUpdate, ""overnight"")
+        assertEquals(""overnight"", newShipment.shipmentType())
+    }
+
+    @Test
+    fun shipmentFactoryExpress() {
+        val initialUpdate = ShipmentUpdate(""s100"", ""created"", ""processing"", 10000)
+        val newShipment = WebServerSingleton.shipmentFactory(initialUpdate, ""express"")
+        assertEquals(""express"", newShipment.shipmentType())
+    }
+
+    @Test
+    fun shipmentFactoryBulk() {
+        val initialUpdate = ShipmentUpdate(""s100"", ""created"", ""processing"", 10000)
+        val newShipment = WebServerSingleton.shipmentFactory(initialUpdate, ""bulk"")
+        assertEquals(""bulk"", newShipment.shipmentType())
+    }
+
+    @Test
+    fun findShipmentNull() {
+        val initialUpdate = ShipmentUpdate(""s100"", ""created"", ""processing"", 10000)
+        val newShipment = WebServerSingleton.shipmentFactory(initialUpdate, ""bulk"")
+        val result = WebServerSingleton.findShipment(""s100"")
+        assertNull(result)
+    }
+
+    @Test
+    fun findShipmentNotNull() {
+        val initialUpdate = ShipmentUpdate(""s100"", ""created"", ""processing"", 10000)
+        val newShipment = WebServerSingleton.shipmentFactory(initialUpdate, ""bulk"")
+        WebServerSingleton.addShipment(newShipment)
+        val result = WebServerSingleton.findShipment(""s100"")
+        assertNotNull(result)
+    }
+}","","0","1654409109279","WebServerSingletonTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","
+","0","1654409109283","WebServerSingletonTest.kt","1.1.3 for 2021-2022 @t1",
+"a","delete C:\Users\Caleb Syndergaard\Documents\School\Summer 2022\CS5700\Assign3\ShipmentTrackerEmulator\src\test\kotlin\WebServerSingletonTest.kt",,,"1654409109293","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","import ShipmentTypes.ExpressShipment","0","1654409109294","WebServerSingletonTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","
+","0","1654409109296","WebServerSingletonTest.kt","1.1.3 for 2021-2022 @t1",
+"a","delete C:\Users\Caleb Syndergaard\Documents\School\Summer 2022\CS5700\Assign3\ShipmentTrackerEmulator\src\test\kotlin\WebServerSingletonTest.kt",,,"1654409109342","WebServerShipmentTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","import ShipmentTypes.OvernightShipment","0","1654409109348","WebServerSingletonTest.kt","1.1.3 for 2021-2022 @t1",
+"e","","
+","0","1654409109351","WebServerSingletonTest.kt","1.1.3 for 2021-2022 @t1",

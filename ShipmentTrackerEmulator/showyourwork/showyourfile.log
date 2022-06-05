@@ -59,3 +59,4 @@ build.gradle.kts
 /src/main/kotlin/ShipmentTypes/ExpressShipment.kt
 /src/main/kotlin/ShipmentTypes/OvernightShipment.kt
 /src/main/kotlin/ShipmentTypes/StandardShipment.kt
+/src/test/kotlin/WebServerSingletonTest.kt

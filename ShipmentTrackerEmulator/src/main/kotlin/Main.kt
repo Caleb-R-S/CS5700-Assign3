@@ -1,5 +1,4 @@
 // Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
-import UpdateStrategies.ShipmentUpdate
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -25,7 +24,7 @@ fun App() {
 
     val coroutineScope = rememberCoroutineScope()
     coroutineScope.launch {
-        WebServerShipment.runServer()
+        WebServerSingleton.runServer()
     }
 
     var text by remember {mutableStateOf("")}
@@ -44,7 +43,7 @@ fun App() {
                     )
 
                     Button(onClick = {
-                        val shipment = WebServerShipment.findShipment(text)
+                        val shipment = WebServerSingleton.findShipment(text)
                              if (shipment != null) {
                                  viewHelpers.add(ShipmentViewHelper(shipment))
                              } else {
@@ -99,7 +98,7 @@ fun App() {
 }
 
 fun main() = application {
-    WebServerShipment.runServer()
+    WebServerSingleton.runServer()
     Window(onCloseRequest = ::exitApplication) {
         App()
     }
